@@ -8,7 +8,7 @@ int dummy(int a) {
 
 int main(int argc, char *argv[])
 {
-    long elements = 10000;
+    long elements = 12354;
     std::string label = "Hello from libProgress!";
 
     ProgressBar<long> p(elements, label);
