@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     ProgressBar<long> p(elements, label);
 
-    for(int i = 0; i <= elements; ++i) {
+    for(long i = 0; i <= elements; ++i) {
         p.update(i);
         for(int j = 0; j < 100000; ++j) {
             dummy(j);
