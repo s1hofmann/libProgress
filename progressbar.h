@@ -63,18 +63,18 @@ public:
         float percent = current/(float)this->totalElements;
         this->currentProgressPercent = 100*percent;
         int progress = percent * this->progressBarWidth;
-        if(progress < this->progressBarWidth) {
-            this->progressBar.replace(progress + 1, 1, "#");
-        }
-
-        this->progressBarBuffer.str(std::string());
-        this->progressBarBuffer.clear();
-        this->progressBarBuffer << " " << this->currentProgressPercent << "%";
-
-        this->progressBarBuffer >> this->progressBarPercent;
-
         if(progress > this->currentProgress) {
             this->currentProgress = progress;
+            if(progress < this->progressBarWidth) {
+                this->progressBar.replace(progress + 1, 1, "#");
+            }
+
+            this->progressBarBuffer.str(std::string());
+            this->progressBarBuffer.clear();
+            this->progressBarBuffer << " " << this->currentProgressPercent << "%";
+
+            this->progressBarBuffer >> this->progressBarPercent;
+
             this->drawProgressBar();
             this->setDimensions();
         }
@@ -114,9 +114,7 @@ private:
 
     int progressBarWidth;
     int totalWidth;
-    int stepSize;
-    int elementStepSize;
 
     int currentProgressPercent = 0.0;
-    int currentProgress = 0;
+    int currentProgress = -1;
 };
