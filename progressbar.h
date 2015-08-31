@@ -91,7 +91,7 @@ public:
     }
 
     void drawProgressBar() {
-        std::cout << "\r" << this->progressBar << this->progressBarPercent << std::flush;
+        std::cout << "\r" << this->progressBar << " " << this->progressBarPercent << std::flush;
     }
 
 private:
