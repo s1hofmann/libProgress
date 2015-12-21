@@ -19,6 +19,17 @@ int main(int argc, char *argv[])
             dummy(j);
         }
     }
+
+    elements = 6789;
+    label = "Second test!";
+    p.reset(elements, label);
+
+    for(long i = 0; i <= elements; ++i) {
+        p.update(i);
+        for(int j = 0; j < 100000; ++j) {
+            dummy(j);
+        }
+    }
     return 0;
 }
 
