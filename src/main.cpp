@@ -13,21 +13,25 @@ int main(int argc, char *argv[])
 
     ProgressBar<long> p(elements, label);
 
-    for(long i = 0; i <= elements; ++i) {
-        p.update(i);
-        for(int j = 0; j < 100000; ++j) {
-            dummy(j);
-        }
-    }
+    //for(long i = 0; i <= elements; ++i) {
+        //p.update(i);
+        //for(int j = 0; j < 100000; ++j) {
+            //dummy(j);
+        //}
+    //}
 
     elements = 6789;
     label = "Second test!";
     p.reset(elements, label);
 
     for(long i = 0; i <= elements; ++i) {
-        p.update(i);
+        p.update();
         for(int j = 0; j < 100000; ++j) {
             dummy(j);
+        }
+        if(i == 3000) {
+            elements = 20451;
+            p.rescale(elements);
         }
     }
     return 0;
